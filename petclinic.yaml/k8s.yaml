@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petclinic-d
+  namespace: petclinic
+  labels:
+    app: petclinic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: petclinic
+  template:
+    metadata:
+      labels:
+        app: petclinic
+    spec:
+      containers:
+      - image: amitmohleji/petclinic:{{BUILD_NUMBER}}
+        name: petclinic
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: petclinic
+  namespace: petclinic
+spec:
+  selector: 
+    app: petclinic
+  type: ClusterIP
+  ports:
+      - port: 8080
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: petclinic
+  namespace: petclinic
+spec:
+  to:
+    kind: Service
+    name: petclinic
+    weight: 100
+  port:
+    targetPort: 8080
+  wildcardPolicy: None
+status:
+  ingress:
+    - routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+      wildcardPolicy: None
+

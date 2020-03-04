@@ -1,0 +1,13 @@
+---
+apiVersion: xl-deploy/v1
+kind: Infrastructure
+spec:
+- name: Infrastructure/openshiftCloud
+  type: openshift.Server
+  serverUrl: https://api.us-west-1.starter.openshift-online.com:6443
+  openshiftToken: !value "Infrastructure_openshiftCloud_openshiftToken"
+  verifyCertificates: false
+  children:
+  - name: petclinic
+    type: openshift.Project
+    projectName: petclinic

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<udm.DeploymentPackage version="{{BUILD_NUMBER}}" application="docker-petclinic">
+  <application />
+  <orchestrator />
+  <satisfiesReleaseNotes>false</satisfiesReleaseNotes>
+  <satisfiesPerformanceTested>false</satisfiesPerformanceTested>
+  <deployables>
+    <k8s.ResourcesFile name="petclinic.yaml" file="petclinic.yaml/k8s.yaml">
+      <tags />
+      <scanPlaceholders>true</scanPlaceholders>
+      <preScannedPlaceholders>true</preScannedPlaceholders>
+      <placeholders>
+      </placeholders>
+      <delimiters>{{ }}</delimiters>
+      <checksum>5c67654cfd55aa835c1abc1601fa5fe403d8fbfc7f02ff305b5e068756e850d0</checksum>
+      <mergePatchType>strategic</mergePatchType>
+      <propagationPolicy>Foreground</propagationPolicy>
+      <updateMethod>patch</updateMethod>
+    </k8s.ResourcesFile>
+  </deployables>
+  <applicationDependencies />
+  <dependencyResolution>LATEST</dependencyResolution>
+  <undeployDependencies>false</undeployDependencies>
+  <templates />
+  <boundTemplates />
+</udm.DeploymentPackage>
