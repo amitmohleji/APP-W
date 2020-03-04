@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<udm.DeploymentPackage version="{{BUILD_NUMBER}}" application="docker-petclinic">
+<udm.DeploymentPackage version="{{BUILD_NUMBER}}" application="APP-W">
   <application />
   <orchestrator />
   <satisfiesReleaseNotes>false</satisfiesReleaseNotes>
   <satisfiesPerformanceTested>false</satisfiesPerformanceTested>
   <deployables>
-    <k8s.ResourcesFile name="petclinic.yaml" file="petclinic.yaml/k8s.yaml">
+    <k8s.ResourcesFile name="APP-W.yaml" file="petclinic.yaml/k8s.yaml">
       <tags />
       <scanPlaceholders>true</scanPlaceholders>
       <preScannedPlaceholders>true</preScannedPlaceholders>
