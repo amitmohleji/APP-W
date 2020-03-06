@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<udm.DeploymentPackage version="{{BUILD_NUMBER}}" application="APP-W">
+<udm.DeploymentPackage version="{{BUILD_NUMBER}}.0.0" application="APP-W">
   <application />
   <orchestrator />
   <satisfiesReleaseNotes>false</satisfiesReleaseNotes>
