@@ -16,7 +16,7 @@ spec:
         app: APP-W
     spec:
       containers:
-      - image: amitmohleji/APP-W:{{BUILD_NUMBER}}
+      - image: amitmohleji/appw:{{BUILD_NUMBER}}
         name: APP-W
 ---
 apiVersion: v1
