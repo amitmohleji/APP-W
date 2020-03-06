@@ -11,7 +11,7 @@ node {
       mvnHome = tool 'maven3'
    }    
     stage('Build') {
-        sh "./mvnw clean package -DskipTests=true"
+        sh "${mvnHome}/bin/mvn clean package -DskipTests=true"
    }
    stage('Update Manifest'){
        sh "sed -i 's/{{BUILD_NUMBER}}/$BUILD_NUMBER/g' deployit-manifest.xml"
@@ -20,7 +20,7 @@ node {
        sh "sed -i 's/{{BUILD_NUMBER}}/$BUILD_NUMBER/g' petclinic.yaml/k8s.yaml"
    }
    stage('Build Docker Image') {
-       appimage = docker.build("amitmohleji/APP-W:$BUILD_NUMBER")
+       appimage = docker.build("amitmohleji/appw:$BUILD_NUMBER")
    }
    stage('Push Image to Registry(dockerhub)') {
        docker.withRegistry("", "cred") {
